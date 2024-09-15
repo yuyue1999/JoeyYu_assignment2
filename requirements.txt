@@ -2,3 +2,4 @@ pandas
 matplotlib
 FPDF
 pytest
+black
