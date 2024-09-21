@@ -11,11 +11,9 @@ lint:
 	ruff check src/ --fix --verbose
 
 test:
-	python -m pytest -vv src/
+	python3 -m pytest -vv --nbval -cov=src -cov=lib test_*.py *.ipynb
 	rm -rf *.png *.pdf
 
-run:
-	python src/main.py
 
 clean:
 	rm -rf $(VENV)

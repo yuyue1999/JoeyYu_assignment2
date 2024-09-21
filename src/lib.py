@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
-from fpdf import FPDF
+# from fpdf import FPDF
 
 def read_dataset(path):
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -13,59 +13,59 @@ def read_dataset(path):
 
 def statistics(df):
     print(df.describe())
-
-def generate_pdf(df, pdf_path="../AI-Powered_Job_Report.pdf"):
-    pdf = FPDF()
-    mean_salary, median_salary, std_salary = (
-        df["Salary_USD"].mean(),
-        df["Salary_USD"].median(),
-        df["Salary_USD"].std(),
-    )
-
-    min_salary, percentile_25_salary, percentile_75_salary, max_salary = (
-        df["Salary_USD"].min(),
-        df["Salary_USD"].quantile(0.25),
-        df["Salary_USD"].quantile(0.75),
-        df["Salary_USD"].max(),
-    )
-
-    pdf.add_page()
-
-    pdf.set_font("Arial", "B", 16)
-    pdf.cell(200, 10, txt="AI Powered Job Report", ln=True, align="C")
-
-    pdf.set_font("Arial", "B", 12)
-    pdf.cell(
-        200,
-        10,
-        txt="Descriptive Statistics for Salary(mean, median, std), Company Size and Required Skills",
-        ln=True,
-        align="L",
-    )
-
-    pdf.cell(200, 10, txt=f"Mean Points: {mean_salary:.2f}", ln=True)
-    pdf.cell(200, 10, txt=f"Median Points: {median_salary:.2f}", ln=True)
-    pdf.cell(200, 10, txt=f"Standard Deviation of Points: {std_salary:.2f}", ln=True)
-
-    pdf.cell(200, 10, txt=f"Min Salary: {min_salary:.2f}", ln=True)
-    pdf.cell(200, 10, txt=f"Percentile 25 Salary: {percentile_25_salary:.2f}", ln=True)
-    pdf.cell(200, 10, txt=f"Percentile 75 Salary: {percentile_75_salary:.2f}", ln=True)
-
-    pdf.cell(200, 10, txt=f"Max Salary: {max_salary:.2f}", ln=True)
-
-
-    pdf.cell(200, 10, txt="Distribution of Company Sizes", ln=True)
-    pdf.image("../companysize_histogram.png", x=10, y=70, w=190)
-
-    pdf.add_page()
-    pdf.cell(200, 10, txt="Job Growth Projection", ln=True)
-    pdf.image("../jobgrowth_histogram.png", x=10, y=70, w=190)
-
-    pdf.add_page()
-    pdf.cell(200, 10, txt="Top 20 Most Frequent Required Skills", ln=True)
-    pdf.image("../requiredskill_histogram.png", x=10, y=70, w=190)
-
-    pdf.output(pdf_path)
+#
+# def generate_pdf(df, pdf_path="../AI-Powered_Job_Report.pdf"):
+#     pdf = FPDF()
+#     mean_salary, median_salary, std_salary = (
+#         df["Salary_USD"].mean(),
+#         df["Salary_USD"].median(),
+#         df["Salary_USD"].std(),
+#     )
+#
+#     min_salary, percentile_25_salary, percentile_75_salary, max_salary = (
+#         df["Salary_USD"].min(),
+#         df["Salary_USD"].quantile(0.25),
+#         df["Salary_USD"].quantile(0.75),
+#         df["Salary_USD"].max(),
+#     )
+#
+#     pdf.add_page()
+#
+#     pdf.set_font("Arial", "B", 16)
+#     pdf.cell(200, 10, txt="AI Powered Job Report", ln=True, align="C")
+#
+#     pdf.set_font("Arial", "B", 12)
+#     pdf.cell(
+#         200,
+#         10,
+#         txt="Descriptive Statistics for Salary(mean, median, std), Company Size and Required Skills",
+#         ln=True,
+#         align="L",
+#     )
+#
+#     pdf.cell(200, 10, txt=f"Mean Points: {mean_salary:.2f}", ln=True)
+#     pdf.cell(200, 10, txt=f"Median Points: {median_salary:.2f}", ln=True)
+#     pdf.cell(200, 10, txt=f"Standard Deviation of Points: {std_salary:.2f}", ln=True)
+#
+#     pdf.cell(200, 10, txt=f"Min Salary: {min_salary:.2f}", ln=True)
+#     pdf.cell(200, 10, txt=f"Percentile 25 Salary: {percentile_25_salary:.2f}", ln=True)
+#     pdf.cell(200, 10, txt=f"Percentile 75 Salary: {percentile_75_salary:.2f}", ln=True)
+#
+#     pdf.cell(200, 10, txt=f"Max Salary: {max_salary:.2f}", ln=True)
+#
+#
+#     pdf.cell(200, 10, txt="Distribution of Company Sizes", ln=True)
+#     pdf.image("../companysize_histogram.png", x=10, y=70, w=190)
+#
+#     pdf.add_page()
+#     pdf.cell(200, 10, txt="Job Growth Projection", ln=True)
+#     pdf.image("../jobgrowth_histogram.png", x=10, y=70, w=190)
+#
+#     pdf.add_page()
+#     pdf.cell(200, 10, txt="Top 20 Most Frequent Required Skills", ln=True)
+#     pdf.image("../requiredskill_histogram.png", x=10, y=70, w=190)
+#
+#     pdf.output(pdf_path)
 
 def companysize(df):
 
@@ -122,7 +122,7 @@ def main():
     companysize(df)
     jobgrowth(df)
     requiredskill(df)
-    generate_pdf(df)
+    # generate_pdf(df)
 
 
 if __name__ == "__main__":
