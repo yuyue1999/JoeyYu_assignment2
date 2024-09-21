@@ -3,7 +3,6 @@ from test_lib import (
     test_hist_companysize,
     test_hist_jobgrowth,
     test_hist_requiredskill,
-    test_pdf_gen,
 )
 
 

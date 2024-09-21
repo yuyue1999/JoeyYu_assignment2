@@ -1,7 +1,7 @@
 import os
 from src.lib import statistics, companysize, read_dataset, jobgrowth, requiredskill
 
-dataset_path = "ai_job_market_insights.csv"
+dataset_path = "../ai_job_market_insights.csv"
 df = read_dataset(dataset_path)
 
 
