@@ -7,6 +7,11 @@
 ![Lint](https://github.com/yuyue1999/JoeyYu_assignment2/actions/workflows/lint.yml/badge.svg)
 ![Test](https://github.com/yuyue1999/JoeyYu_assignment2/actions/workflows/test.yml/badge.svg)
 
+
+## Videos
+* https://youtu.be/abtZvfy2YC4
+
+
 ## Requirements
 * Python script using Polars for descriptive statistics
 * Read a dataset (CSV or Excel)
